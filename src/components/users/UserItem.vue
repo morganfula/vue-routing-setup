@@ -17,8 +17,8 @@ export default {
         return 'role--consultant';
       }
       return null;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -42,12 +42,12 @@ h3 {
 }
 
 .role--engineer {
-  background-color: blue;
-  color: white;
+  background-color: #88b2c5;
+  color: #fff;
 }
 
 .role--consultant {
-  background-color: #af003a;
+  background-color: #d73134;
   color: white;
 }
 </style>
