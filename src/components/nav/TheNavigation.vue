@@ -19,8 +19,8 @@ export default {
   methods: {
     setActivePage(page) {
       this.$emit('set-page', page);
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -28,7 +28,7 @@ export default {
 header {
   width: 100%;
   height: 5rem;
-  background-color: #11005c;
+  background-color: #ffe69a;
 }
 
 nav {
@@ -54,15 +54,16 @@ button {
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
-  color: white;
+  color: #000;
   padding: 0.5rem 1.5rem;
   display: inline-block;
+  outline: none;
 }
 
 button:hover,
 button:active {
-  color: #f1a80a;
-  border-color: #f1a80a;
-  background-color: #1a037e;
+  color: #d73134;
+  border-color: #d73134;
+  /* background-color: #1a037e; */
 }
 </style>

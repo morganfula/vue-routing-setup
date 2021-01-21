@@ -8,16 +8,16 @@
 
 <script>
 export default {
-  props: ['name', 'memberCount'],
+  props: ['name', 'memberCount']
 };
 </script>
 
 <style scoped>
 li {
   margin: 1rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  border-radius: 12px;
+  /* box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); */
   padding: 1rem;
+  border: 1px solid #ccc;
 }
 
 li h3 {
@@ -34,11 +34,11 @@ a {
   color: white;
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  background-color: #11005c;
+  background-color: #d73134;
 }
 
 a:hover,
 a:active {
-  background-color: #220a8d;
+  background-color: #df5a5d;
 }
 </style>
