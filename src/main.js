@@ -30,12 +30,18 @@ const router = createRouter({
     { path: '/:catchAll(.*)', component: NotFound }
   ],
   linkActiveClass: 'active',
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_, _2, savedPosition) {
     if (savedPosition) {
       return savedPosition;
     }
     return { left: 0, top: 0 };
   }
+});
+
+router.beforeEach(function(to, from, next) {
+  console.log('Global beforeEach');
+  console.log(to, from);
+  next();
 });
 
 const app = createApp(App);
