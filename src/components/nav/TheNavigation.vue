@@ -17,7 +17,7 @@
 header {
   width: 100%;
   height: 5rem;
-  background-color: #ffe69a;
+  background-color: #11005c;
 }
 
 nav {
@@ -43,17 +43,16 @@ a {
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
-  color: #000;
+  color: white;
   padding: 0.5rem 1.5rem;
   display: inline-block;
-  outline: none;
 }
 
 a:hover,
 a:active,
 a.active {
-  color: #d73134;
-  border-color: #d73134;
-  /* background-color: #1a037e; */
+  color: #f1a80a;
+  border-color: #f1a80a;
+  background-color: #1a037e;
 }
 </style>

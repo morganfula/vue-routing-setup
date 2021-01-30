@@ -9,7 +9,7 @@
         :role="member.role"
       ></user-item>
     </ul>
-    <router-link to="/teams/t2">Go to team 2</router-link>
+    <router-link to="/teams/t2">Go to Team 2</router-link>
   </section>
 </template>
 
@@ -20,34 +20,34 @@ export default {
   inject: ['users', 'teams'],
   props: ['teamId'],
   components: {
-    UserItem
+    UserItem,
   },
   data() {
     return {
       teamName: '',
-      members: ''
+      members: [],
     };
   },
   methods: {
     loadTeamMembers(teamId) {
-      const selectedTeam = this.teams.find(team => team.id === teamId);
+      const selectedTeam = this.teams.find((team) => team.id === teamId);
       const members = selectedTeam.members;
       const selectedMembers = [];
-
       for (const member of members) {
-        const selectedUser = this.users.find(user => user.id === member);
+        const selectedUser = this.users.find((user) => user.id === member);
         selectedMembers.push(selectedUser);
       }
       this.members = selectedMembers;
       this.teamName = selectedTeam.name;
-    }
+    },
   },
   created() {
+    // this.$route.path // /teams/t1
     this.loadTeamMembers(this.teamId);
-    // console.log(this.$route.query);
+    console.log(this.$route.query);
   },
   beforeRouteUpdate(to, from, next) {
-    console.log('TeamMembers Cmp BeforeRouteUpdate');
+    console.log('TeamMembers Cmp beforeRouteUpdate');
     console.log(to, from);
     // this.loadTeamMembers(to.params.teamId);
     next();
@@ -55,8 +55,8 @@ export default {
   watch: {
     teamId(newId) {
       this.loadTeamMembers(newId);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -64,8 +64,9 @@ export default {
 section {
   margin: 2rem auto;
   max-width: 40rem;
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 1rem;
+  border-radius: 12px;
 }
 
 h2 {

@@ -11,23 +11,24 @@ export default {
   props: ['id', 'name', 'memberCount'],
   computed: {
     teamMembersLink() {
-      // return '/teams/' + this.id;
+      // return '/teams/' + this.id + '?sort=asc';
       return {
-        name: 'team-member',
+        name: 'team-members',
         params: { teamId: this.id },
-        query: { sort: 'asc' }
+        query: { sort: 'asc' },
       };
-    }
-  }
+      // this.$router.push({ name: 'team-members', params: { teamId: this.id } });
+    },
+  },
 };
 </script>
 
 <style scoped>
 li {
   margin: 1rem 0;
-  /* box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 12px;
   padding: 1rem;
-  border: 1px solid #ccc;
 }
 
 li h3 {
@@ -44,11 +45,11 @@ a {
   color: white;
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  background-color: #d73134;
+  background-color: #11005c;
 }
 
 a:hover,
 a:active {
-  background-color: #df5a5d;
+  background-color: #220a8d;
 }
 </style>

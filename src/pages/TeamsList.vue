@@ -7,8 +7,7 @@
       :id="team.id"
       :name="team.name"
       :member-count="team.members.length"
-    >
-    </teams-item>
+    ></teams-item>
   </ul>
 </template>
 
@@ -17,9 +16,9 @@ import TeamsItem from '../components/teams/TeamsItem.vue';
 
 export default {
   components: {
-    TeamsItem
+    TeamsItem,
   },
-  inject: ['teams']
+  inject: ['teams'],
 };
 </script>
 

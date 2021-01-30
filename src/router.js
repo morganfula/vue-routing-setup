@@ -18,18 +18,30 @@ const router = createRouter({
       components: { default: TeamsList, footer: TeamsFooter },
       children: [
         {
-          name: 'team-member',
+          name: 'team-members',
           path: ':teamId',
           component: TeamMembers,
           props: true
-        }
+        } // /teams/t1
       ]
+    }, // our-domain.com/teams => TeamsList
+    {
+      path: '/users',
+      components: {
+        default: UsersList,
+        footer: UsersFooter
+      },
+      beforeEnter(to, from, next) {
+        console.log('users beforeEnter');
+        console.log(to, from);
+        next();
+      }
     },
-    { path: '/users', components: { default: UsersList, footer: UsersFooter } },
-    { path: '/:catchAll(.*)', component: NotFound }
+    { path: '/:notFound(.*)', component: NotFound }
   ],
   linkActiveClass: 'active',
   scrollBehavior(_, _2, savedPosition) {
+    // console.log(to, from, savedPosition);
     if (savedPosition) {
       return savedPosition;
     }
@@ -41,12 +53,20 @@ router.beforeEach(function(to, from, next) {
   console.log('Global beforeEach');
   console.log(to, from);
   if (to.meta.needsAuth) {
-    console.log('Need Auth');
+    console.log('Needs auth!');
+    next();
+  } else {
     next();
   }
+  // if (to.name === 'team-members') {
+  //   next();
+  // } else {
+  //   next({ name: 'team-members', params: { teamId: 't2' } });
+  // }
+  // next();
 });
 
-router.afterEach((to, from) => {
+router.afterEach(function(to, from) {
   // sending analytics data
   console.log('Global afterEach');
   console.log(to, from);
